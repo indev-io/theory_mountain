@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>94784010028-g2t1s37ilhfgdf0hk599mdj73jmrqnvu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.94784010028-g2t1s37ilhfgdf0hk599mdj73jmrqnvu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>94784010028-itqp1ihi74ifoebo7o5un5i4n3l0icjv.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBQJBQEb6N5gGTAHeAeyAI-7yMYRXkwYuM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>94784010028</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>io.noodler.theoryMountain</string>
+	<key>PROJECT_ID</key>
+	<string>theory-mountain</string>
+	<key>STORAGE_BUCKET</key>
+	<string>theory-mountain.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:94784010028:ios:1e2458296a14f7a841de89</string>
+</dict>
+</plist>
