@@ -1,14 +1,20 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:theory_mountain/routes.dart';
 import 'package:theory_mountain/services/services.dart';
 import 'package:theory_mountain/shared/shared.dart';
 import 'package:theory_mountain/theme.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const App());
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  runApp(ChangeNotifierProvider(
+      //true = darkmode, false = lightmode
+      create: ((context) =>
+          ThemeProvider(prefs.getBool("isDarkTheme") ?? false)),
+      child: const App()));
 }
 
 class App extends StatefulWidget {
@@ -35,14 +41,17 @@ class _AppState extends State<App> {
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
           return StreamProvider(
-            create: (_) => FirestoreService().streamReport(),
-            catchError: (_, err) => Report(),
-            initialData: Report(),
-            child: MaterialApp(
-                debugShowCheckedModeBanner: true,
-                routes: appRoutes,
-                theme: appTheme),
-          );
+              create: (_) => FirestoreService().streamReport(),
+              catchError: (_, err) => Report(),
+              initialData: Report(),
+              child: Consumer<ThemeProvider>(
+                builder: (context, themeProvider, child) {
+                  return MaterialApp(
+                      debugShowCheckedModeBanner: true,
+                      routes: appRoutes,
+                      theme: themeProvider.getTheme);
+                },
+              ));
         }
 
         // Otherwise, show something whilst waiting for initialization to complete

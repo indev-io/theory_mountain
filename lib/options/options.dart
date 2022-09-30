@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:provider/provider.dart';
+import 'package:theory_mountain/theme.dart';
 
 class OptionsScreen extends StatelessWidget {
   const OptionsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeprovider;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
@@ -14,8 +15,11 @@ class OptionsScreen extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () => debugPrint('Is this button working?'),
-          child: const Text('push me'),
+          onPressed: () => {
+            themeprovider = Provider.of<ThemeProvider>(context, listen: false),
+            themeprovider.swapTheme(),
+          },
+          child: const Text('Change Theme'),
         ),
       ),
     );
